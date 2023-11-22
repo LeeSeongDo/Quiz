@@ -1,8 +1,10 @@
+// JS 영역입니다.
 import { useState } from "react";
-import { useMutation, gql } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-
-export default function WritePage() {
+import BoardWritePage from "./BoardWrite.presenter";
+import { CREATE_PRODUCT } from "./BoardWrite.graphql";
+export default function BoardWriteJs() {
   const [seller, setSeller] = useState();
   const [product, setProduct] = useState();
   const [contents, setContents] = useState();
@@ -48,30 +50,12 @@ export default function WritePage() {
   };
 
   return (
-    <div>
-      <div>
-        <span>판매자</span>
-        <input type="text" onChange={sellerChangeEvent} />
-      </div>
-
-      <div>
-        <span>상품명</span>
-        <input type="text" onChange={productChangeEvent} />
-      </div>
-
-      <div>
-        <span>상품내용</span>
-        <input type="text" onChange={contentsChangeEvent} />
-      </div>
-
-      <div>
-        <span>상품가격</span>
-        <input type="text" onChange={priceChangeEvent} />
-      </div>
-
-      <div>
-        <button onClick={onClickSubmit}>전송하기 </button>
-      </div>
-    </div>
+    <BoardWritePage
+      sellerChangeEvent={sellerChangeEvent}
+      productChangeEvent={productChangeEvent}
+      contentsChangeEvent={contentsChangeEvent}
+      priceChangeEvent={priceChangeEvent}
+      onClickSubmit={onClickSubmit}
+    />
   );
 }

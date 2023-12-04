@@ -9,11 +9,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <div>
-      <div>=======================</div>
       <ApolloProvider client={client}>
         <Component {...pageProps} />
       </ApolloProvider>
-      <div>=======================</div>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import "../styles/globals.css";
+import { Global } from "@emotion/react";
+import { globalStyles } from "../public/styles/globalStyles";
 
 export default function App({ Component, pageProps }) {
   const client = new ApolloClient({
